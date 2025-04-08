@@ -1,0 +1,3 @@
+# Sirve para que el pipeline o contenedor sepa que librerias se van a usar
+# y las instale
+flask

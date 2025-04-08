@@ -1,0 +1,6 @@
+# Excluye archivos temporales de python y archivos de entorno local, para mantener tu repositorio limpio y seguro
+# y evitar subir información sensible o innecesaria.
+__pycache__/
+*.pyc
+.env
+
