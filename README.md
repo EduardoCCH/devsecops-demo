@@ -7,4 +7,4 @@ Este ejercicio te permite ejercicio te permite practicar los conceptos de DeVSec
     - GitHub o Azure DevOps (gratis)
     - Azure CLI instalado (opcional)
   # Objestivo del ejercicio:
-    Desplegar una aplicación web sencilla con IaC (Terraform), escanear el código por vulnerabilidades, aplicar controles de       seguridad y monitorear el despliegue en Azure
+    Desplegar una aplicación web sencilla con IaC (Terraform), escanear el código por vulnerabilidades, aplicar controles de seguridad y monitorear el despliegue en Azure
