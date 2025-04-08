@@ -24,3 +24,18 @@ steps:
     pip install checkov
     checkov -d .
   displayName: 'Ejecutar Checkov para escaneo de seguridad en IaC'
+
+# ---- Agregar SonarQube para análisis estático ----
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'EduardoCCH'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'eduardocch'
+    cliProjectName: 'devsecops-demo'
+
+- script: |
+    npm install
+    npm run sonar-scanner
+  displayName: 'Ejecutar SonarQube Scanner'
