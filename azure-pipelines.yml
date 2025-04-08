@@ -1,30 +1,26 @@
 # Archivo de configuración que dice a Azure DevOps que hacer automaticamente cuando detecta cambios en el código
 trigger:
 - main
+
 pool:
-  vmImage: 'ubuntu-latest' # Imagen de Ubuntu para ejecutar el pipeline
+  vmImage: 'ubuntu-latest'
+
 steps:
 - script: echo "Iniciando DevSecOps Pipeline"
-  displayName: 'Iniciar Pipeline'
-# Hacer push al branch main y se activa el pipeline
+  displayName: 'Inicio'
 
-# Agregar seguridad al pipeline
-# Instalar Bandit tool para escanear código python en busqueda de vulnerabilidades conocidas
-# Ejecutar Bandit para realizar el escaneo de seguridad
--task: UsePythonVersion@0 # Usar la versión de Python 3.8
+- task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.x' # Especificar la versión de Python a usar
-  displayName: 'Usar Python 3.x' # Nombre que se mostrará en el pipeline
+    versionSpec: '3.x'
+  displayName: 'Usar versión de Python 3.x'
 
-- script: pip install bandit # Instalar Bandit
-  displayName: 'Instalar Bandit (escaner de seguridad)'
+- script: pip install bandit
+  displayName: 'Instalar Bandit (escáner de seguridad)'
 
-- script: bandit -r . -ll #
-  displayName: 'Ejecutar Bandit para escaneo de seguridad' # Ejecutar Bandit para escanear el código en busca de vulnerabilidades
+- script: bandit -r . -ll
+  displayName: 'Ejecutar Bandit para escaneo de seguridad'
 
-#Agregar Checkov para escanear infraestructura como código (IaC) en busca de vulnerabilidades
 - script: |
-    pip install checkov # Instalar Checkov
-    checkov -d . # Ejecutar Checkov para escanear el código en busca de vulnerabilidades
-  displayName: 'Ejecutar Checkov para escaneo de IaC' 
-  # Ejecutar Checkov para escanear el código en busca de vulnerabilidades 
+    pip install checkov
+    checkov -d .
+  displayName: 'Ejecutar Checkov para escaneo de seguridad en IaC'
