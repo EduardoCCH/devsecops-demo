@@ -8,3 +8,23 @@ steps:
   displayName: 'Iniciar Pipeline'
 # Hacer push al branch main y se activa el pipeline
 
+# Agregar seguridad al pipeline
+# Instalar Bandit tool para escanear código python en busqueda de vulnerabilidades conocidas
+# Ejecutar Bandit para realizar el escaneo de seguridad
+-task: UsePythonVersion@0 # Usar la versión de Python 3.8
+  inputs:
+    versionSpec: '3.x' # Especificar la versión de Python a usar
+  displayName: 'Usar Python 3.x' # Nombre que se mostrará en el pipeline
+
+- script: pip install bandit # Instalar Bandit
+  displayName: 'Instalar Bandit (escaner de seguridad)'
+
+- script: bandit -r . -ll #
+  displayName: 'Ejecutar Bandit para escaneo de seguridad' # Ejecutar Bandit para escanear el código en busca de vulnerabilidades
+
+#Agregar Checkov para escanear infraestructura como código (IaC) en busca de vulnerabilidades
+- script: |
+    pip install checkov # Instalar Checkov
+    checkov -d . # Ejecutar Checkov para escanear el código en busca de vulnerabilidades
+  displayName: 'Ejecutar Checkov para escaneo de IaC' # Ejecutar Checkov para escanear el código en busca de vulnerabilidades 
+  
