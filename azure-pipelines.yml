@@ -1,0 +1,10 @@
+# Archivo de configuración que dice a Azure DevOps que hacer automaticamente cuando detecta cambios en el código
+trigger:
+- main
+pool:
+  vmImage: 'ubuntu-latest' # Imagen de Ubuntu para ejecutar el pipeline
+steps:
+- script: echo "Iniciando DevSecOps Pipeline"
+  displayName: 'Iniciar Pipeline'
+# Hacer push al branch main y se activa el pipeline
+
