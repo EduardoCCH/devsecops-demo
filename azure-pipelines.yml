@@ -26,5 +26,5 @@ steps:
 - script: |
     pip install checkov # Instalar Checkov
     checkov -d . # Ejecutar Checkov para escanear el código en busca de vulnerabilidades
-  displayName: 'Ejecutar Checkov para escaneo de IaC' # Ejecutar Checkov para escanear el código en busca de vulnerabilidades 
-  
+  displayName: 'Ejecutar Checkov para escaneo de IaC' 
+  # Ejecutar Checkov para escanear el código en busca de vulnerabilidades 
